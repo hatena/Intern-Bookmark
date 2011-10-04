@@ -15,6 +15,13 @@ sub entry {
     );
 }
 
+sub user {
+    my $self = shift;
+    return moco('User')->find(
+        id => $self->user_id
+    );
+}
+
 sub as_string {
     my $self = shift;
 

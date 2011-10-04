@@ -1,0 +1,23 @@
+[% WRAPPER "_wrapper.tt", title = "Intern::Bookmark::Add" %]
+
+<header>
+    <a href="[% entry.url | html %]">
+        [% entry.title | html %]
+    </a>
+</header>
+
+<ol>
+    [% FOR bookmark IN bookmarks %]
+    <li>
+        [% bookmark.user.name | html %] - [% bookmark.comment | html %] - 
+        [% bookmark.created_on.strftime('%Y-%m-%d') | html %]
+        [% IF r.user.name == bookmark.user.name %]
+        <a href="/bookmark.add?id=[% entry.id | html %]">編集</a>
+        <a href="/bookmark.delete?id=[% entry.id | html %]">削除</a>
+        [% END %]
+    </li>
+    [% END %]
+</ol>
+
+
+[% END %]

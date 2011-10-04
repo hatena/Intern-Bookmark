@@ -9,9 +9,16 @@ __PACKAGE__->table('user');
 
 sub bookmarks {
     my $self = shift;
+    my %opts = @_;
+    my $page = $opts{page} || 1;
+    my $limit = $opts{limit} || 3;
+    my $offset = ($page - 1) * $limit;
+
     return moco('Bookmark')->search(
-        where => { user_id => $self->id },
-        order => 'created_on DESC',
+        where  => { user_id => $self->id },
+        limit  => $limit,
+        offset => $offset,
+        order  => 'created_on DESC',
     );
 }
 

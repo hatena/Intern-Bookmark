@@ -1,3 +1,6 @@
 [submodule "modules/DBIx-MoCo"]
 	path = modules/DBIx-MoCo
 	url = https://github.com/hatena/DBIx-MoCo.git
+[submodule "modules/Ridge"]
+	path = modules/Ridge
+	url = https://github.com/hatena/Ridge.git
